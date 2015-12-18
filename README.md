@@ -3,6 +3,8 @@
 Docker image for [Gearman UI](http://gaspaio.github.io/gearmanui/), a small PHP application providing a minimal 
 monitoring dashboard for a cluster of Gearman Job Servers.
 
+Forked on 2015-12-18 from [koryonik/gearman-ui.docker](https://github.com/koryonik/gearman-ui.docker) to add some of our own spices
+
 ## Usage
 
 To run the server and expose the port:
@@ -11,7 +13,7 @@ To run the server and expose the port:
 
 ```bash
 $ docker run -it --rm --name=gearmanui -p 8085:80 \ 
-	--link gearman:gearman koryonik/gearman-ui
+	--link gearman:gearman jujhars13/gearman-ui
 ```
 
 ### With Fig / Docker compose
@@ -60,4 +62,12 @@ And mount file :
 $ docker run -it --rm --name=gearmanui -p 8085:80 \
 	--link gearman:gearman koryonik/gearman-ui \
 	"$PWD"/gearmanui.yml:/gearmanui/app/config/gearmanui.yml
+```
+
+## Misc
+
+local dev
+```
+docker build -t dev ./ && docker run -v $PWD/gearmanui:/gearmanui -ti --entrypoint=/bin/bash -p 8081:80 dev
+docker build -t dev ./ && docker run --link gearman:gearman -v $PWD/gearmanui:/gearmanui -p 8081:80 dev
 ```

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="gearmanui">
+<head>
+    <meta charset="utf-8">
+    <title>Gearman UI</title>
+    <link rel="stylesheet" href="{{ app.request.baseurl }}/vendor/bootstrap-css-only/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.baseurl }}/gearmanui.css">
+    <script src="{{ app.request.baseurl }}/vendor/angular/angular.min.js"></script>
+    <script src="{{ app.request.baseurl }}/vendor/angular-resource/angular-resource.min.js"></script>
+    <script src="{{ app.request.baseurl }}/vendor/angular-route/angular-route.min.js"></script>
+    <script src="{{ app.request.baseurl }}/gearmanui.js"></script>
+    <script type="text/javascript">
+        // Inject configuration into gearmanui module.
+        gearmanui.value('GearmanSettings', {
+            refreshInterval: {{ settings.refresh_interval | default(5) }}
+        });
+    </script>
+</head>
+<body>
+<div id="wrap">
+<div class="container">
+    <div class="row">
+        <div id="left-sidebar" class="col-md-3  well">
+            <div id="logo">
+                <img src="{{ app.request.baseurl }}/gearmanLogoSmall.png">
+            </div>
+            <ul class="nav nav-pills nav-stacked" ng-controller="NavigationCtrl">
+                <li ng-class="getClass('/status')"><a href="#/status">Job queue</a></li>
+                <li ng-class="getClass('/workers')"><a href="#/workers">Workers</a></li>
+                <li ng-class="getClass('/servers')"><a href="#/servers">Servers' status </a></li>
+            </ul>
+        </div>
+        <div class="col-md-9" ng-controller="InfoCtrl">
+            <div class="error-container">
+                <div class="alert alert-danger" role="alert" ng-repeat="error in errors">
+                    {{ "{{ error }}" }}
+                </div>
+            </div>
+            <div ng-view></div>
+        </div>
+    </div>
+    <div id="push"></div>
+</div>
+</div>
+<div id="footer">
+    <div class="container">
+        <strong>Gearman UI</strong> is proudly powered by
+        <a href="http://silex.sensiolabs.org/" target="_blank">Silex</a>,
+        <a href="http://angularjs.org" target="_blank">Angular.js</a>,
+        and <a href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>.
+        <div class="copyright">© 2015 Rodolfo Ripado</div>
+    </div>
+</div>
+
+</body>
+</html>

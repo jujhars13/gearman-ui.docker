@@ -1,4 +1,4 @@
-FROM php:7.0.0-apache
+FROM php:5.6-apache
 
 MAINTAINER Damien Roch, damien.roch@gmail.com
 MAINTAINER Jujhar Singh, jujhar@jujhar.com

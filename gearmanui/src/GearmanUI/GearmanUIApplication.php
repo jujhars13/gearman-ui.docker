@@ -26,7 +26,7 @@ class GearmanUIApplication extends Application
 
     public function __construct(array $values = array())
     {
-        echo realpath(self::DEFAULT_LOG_FILE);
+
         parent::__construct($values);
 
         # Set run env

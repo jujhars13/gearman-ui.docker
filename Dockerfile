@@ -12,6 +12,7 @@ RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 
 # Copy PHP configuration file
 COPY build/php.ini /usr/local/etc/php/
+COPY /gearmanui /gearmanui
 
 #Jujhar - No longer install from github - included with project
 ## Install utils

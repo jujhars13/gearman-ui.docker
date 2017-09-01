@@ -5,6 +5,9 @@ monitoring dashboard for a cluster of Gearman Job Servers.
 
 Forked on 2015-12-18 from [koryonik/gearman-ui.docker](https://github.com/koryonik/gearman-ui.docker) to add some of our own spices
 
+
+[![dockeri.co](http://dockeri.co/image/jujhars13/docker-imagemagick)](https://hub.docker.com/r/jujhars13/docker-imagemagick/)
+
 ## Usage
 
 To run the server and expose the port:
